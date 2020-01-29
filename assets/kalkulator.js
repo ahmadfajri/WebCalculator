@@ -49,7 +49,7 @@ function inputDigit(digit) {
 const buttons = document.querySelectorAll(".button");
 // lakukan perulangan untuk menyesuaikan elemen target
 for (let button of buttons) {
-  button.addEventListener("click", function(event) {
+  button.addEventListener("click", function (event) {
     //mendapatkan objek elemen yang diklik
     const targetEl = event.target;
 
@@ -164,6 +164,18 @@ function performCalculation() {
       parseInt(calculator.firstNumber) - parseInt(calculator.displayNumber);
   }
 
+  const history = {
+    firstNumber: calculator.firstNumber,
+    secondNumber: calculator.displayNumber,
+    operator: calculator.operator,
+    result: result
+  }
+
+  putHistory(history);
+
   // masukkan nilai hasil(result) ke displayNumber
   calculator.displayNumber = result;
+
+  renderHistory();
+
 }
